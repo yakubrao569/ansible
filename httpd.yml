@@ -1,0 +1,14 @@
+---
+- name : first playbook for installation webserver
+  hosts : all
+  become : yes
+  tasks:
+    - name: installed httpd web server
+      dnf :
+        name : httpd
+        state : latest
+    - name : start the service
+      service:
+           name : httpd
+           state : started
+           enabled: true
